@@ -26,18 +26,20 @@ const generateAccessAndRefreshToken = async (userId)=>{
 
 const registerUser = asyncHandler(async (req,res) => {
     
+    
+    
     const { name, email, password} = req.body;
-
+    
     // checking whether we got the data  or not
-
+    
     if (!name || !email || !password) {
         throw new ApiError(400,"Please provide all the required fields")
     }
-
+    
     //check wheter the user exists or not
-
+    
     const ExistedUser = await User.findOne({email});
-
+    
     if (ExistedUser) {
         throw new ApiError(409, "Email already in use")
     }

@@ -5,7 +5,7 @@ const expenseSchema = new Schema({
              type: String,
              required: [true,"Please add a title"]
     },
-    category:{
+    categoryId:{
         type: Schema.Types.ObjectId,
         ref: "Category",
         required:[true,"Please add a category"]
@@ -14,11 +14,7 @@ const expenseSchema = new Schema({
         type: String,
         required: [true,"Please add a description"]
     },
-    date:{
-        type: Date,
-        default: Date.now()
-    },
-    user:{
+    userId:{
         type: Schema.Types.ObjectId,
         ref: "User",
     },
